@@ -1,8 +1,16 @@
 package com.github.cchacin.skg;
 
-import java.util.Set;
+import org.immutables.value.Value;
 
-public record Player(
-        String name,
-        Set<Card> cards) {
+
+@Value.Immutable
+public interface Player {
+    String name();
+
+    static Builder builder() {
+        return new Builder();
+    }
+
+    class Builder extends PlayerInternalBuilder {
+    }
 }
